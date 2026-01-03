@@ -14,6 +14,13 @@ pipeline {
                     url: 'https://github.com/satindersingh220597/dockerjavabuild.git'
             }
         }
+         stage('Build Java App (Maven)') {
+            steps {
+                dir('java-app') {
+                    bat 'mvn clean package'
+                }
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
